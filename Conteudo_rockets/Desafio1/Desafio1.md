@@ -89,6 +89,7 @@ O email deve especificar o valor pago.
 <br>
 
 #### Desafios Backend (escolher 2 de 3):
+
 ##### Desafio: Criar um Portlet Básico
 
 <b> Objetivo:</b>
@@ -98,9 +99,11 @@ brasilia, dando a opção para o usuário informar o UTC.
 <br>
 
 ##### Desafio: Criação de Serviços Locais Simples
-<br> Objetivo:</b>
+
+<b> Objetivo:</b>
 - Criar um serviço local que permite registrar e listar tarefas.
 
+<br>
 
 ##### Desafio: Desafio: Criar uma REST API no Liferay para Consultar Informações de Clima
 
@@ -111,9 +114,12 @@ formatada e segura.
 </details>
 
 <br>
+<br>
 
 ### Resolução:
 
 [Desafio 1.1 - Desafio geral](/Conteudo_rockets/Desafio1/1/Desafio1.1.md)
-[Desafio 1.2]()
-[Desafio 1.3]()
+
+[Desafio 1.2 - Mostra Hora UTC](/Conteudo_rockets/Desafio1/2/Desafio1.2.md)
+
+[Desafio 1.3 - Serviço de lista](/Conteudo_rockets/Desafio1/3/Desafio1.3.md)
