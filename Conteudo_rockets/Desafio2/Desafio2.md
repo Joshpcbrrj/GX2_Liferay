@@ -1,125 +1,207 @@
 
-# Desafio 1 Rockets GX2
+# Desafio 2 Rockets GX2
 
 ## Requisitos:
 
-[Documento do desafio](/Conteudo_rockets/Desafio1/arq/Backend%20Desafios%20Técnicos%20Rocket%20I%20.pdf)
+[Documento do desafio](/Conteudo_rockets/Desafio2/arq/PDF/Desafio%20Rockets%20II.pdf)
 
 <details>
   <summary>Instruções do desafio</summary>
   
-# Desafios Técnicos Rocket I <br>
+  # Desafios Técnicos Rocket II - Rocket Talents
 
-### Instruções gerais:
+## Trilha Liferay
 
-- O desafio será aberto ao final da Live do dia 16/04/2024 e a entrega
-será no dia 17/05/2024, até 23h59. Durante esse período, dúvidas
-pontuais podem ser tiradas via Chat da Google.
+### Instruções Gerais:
 
-- O desafio consiste em 1) realizar os exercícios, registrar no Github e
-enviar o link para avaliação; 2) Apresentar o que foi feito para o
-Comitê de Padrinhos (Data a Marcar).
-
+- O desafio será aberto ao final da call do dia **20/08/2024** e a entrega será no dia **16/09/2024**, até **23h59**.
+- Durante esse período, dúvidas pontuais podem ser tiradas via Chat da Google no grupo com os padrinhos.
+- O desafio consiste em:
+    1. Realizar os exercícios, registrar no GitHub e enviar o link para avaliação.
+    2. Apresentar o que foi feito para o Comitê de Padrinhos (Data a Marcar).
 - A apresentação deve abranger todos os tópicos requeridos.
-
-- Importante: O cumprimento do prazo (17/05/2024) faz parte da
-avaliação (prazo e qualidade da entrega).
-
+- **Importante**: O cumprimento do prazo (16/09/2024) faz parte da avaliação, e eventuais intercorrências devem ser avisadas com antecedência.
 
 ### Instruções do Desafio:
 
-Envie o link do git contendo os tópicos solicitados e apresente em reunião
-tópicos mencionados abaixo, demonstrando o que foi feito, com duração
-máxima de 15 minutos. Certifique-se de demonstrar e explicar os
-conceitos de forma clara e concisa.
+- Envie o link do Git contendo os tópicos solicitados e apresente em reunião com duração máxima de **15 minutos**.
+- Certifique-se de demonstrar e explicar os conceitos de forma clara e concisa.
+- A avaliação será baseada na:
+    - Qualidade dos códigos.
+    - Clareza da explicação.
+    - Precisão das informações.
+    - Demonstração prática dos conceitos.
 
-A avaliação será baseada na qualidade dos códigos, na clareza da
-explicação, na precisão das informações e na demonstração prática dos
-conceitos. Certifique-se de ter internet, câmera e luz adequadas na hora
-da apresentação.
+### Preparação para a Apresentação:
 
-Esta avaliação testará seu conhecimento prático do Liferay, qualidade de
-código e sua capacidade de comunicar eficazmente os conceitos aos
-outros. 
+- Certifique-se de ter uma boa conexão de internet, câmera e iluminação adequada.
+- Esta avaliação testará seu **conhecimento prático** do Liferay, **qualidade de código** e **habilidade de comunicação**.
 
-<br>
+---
 
-#### Desafio Geral:
-Desafio: Implementar um de Processo de Aprovação de Reembolso no
-Liferay
+## Front-end:
 
-Objetivo: Desenvolver um processo de aprovação de reembolso dentro da
-plataforma Liferay que permite a um funcionário submeter uma
-solicitação de reembolso, incluindo um comprovante e informações
-específicas. O processo deve incluir etapas de validação e aprovação por
-parte de um gerente e um diretor, antes do envio para a área financeira
-para o processamento final e pagamento do reembolso.
+### Desafio: Intranet
 
-Requisitos Detalhados do Processo
-Submissão da Solicitação pelo Funcionário:
+### Objetivo:
 
-##### Campos Obrigatórios:
-- Valor: Campo obrigatório.
-- Data: Campo obrigatório.
-- Fornecedor: Campo obrigatório se o valor for igual ou superior a R$
-100,00.
-- Descrição: Campo obrigatório se o valor for igual ou superior a R$
-100,00.
-- Comprovante: Anexar comprovante de despesa. Campo obrigatório.
-Revisão pelo Gerente.
+Criar um **dashboard personalizado** que mostre informações relevantes para os usuários.
 
-<br>
-O gerente pode aprovar e encaminhar a solicitação para o diretor ou
-rejeitar a solicitação.
-Em caso de rejeição, deve ser possível fornecer um feedback sobre os
-motivos da rejeição ao funcionário.
 
-O diretor pode aprovar a solicitação para envio ao departamento
-financeiro ou rejeitá-la.
-Em caso de rejeição, deve ser possível fornecer um feedback sobre os
-motivos da rejeição ao funcionário.
 
-Após a aprovação pelo diretor, a solicitação é enviada para a área
-financeira.
-O departamento financeiro processa o pagamento e envia um email ao
-funcionário informando que o reembolso foi pago.
-O email deve especificar o valor pago.
+### 1 - Dashboard Personalizado
 
-<br>
-<br>
+**Objetivo**: Criar um dashboard personalizável com diferentes tipos de layouts, onde os usuários possam inserir componentes desejados através de uma interface de "Drag and Drop".
 
-#### Desafios Backend (escolher 2 de 3):
+**Detalhes**:
 
-##### Desafio: Criar um Portlet Básico
+- **Tipos de Layout**: 4 tipos de Grid Layout, onde os componentes podem ser arranjados em linhas e colunas.
+- **Drag and Drop**: Permitir que os usuários possam adicionar, mover e remover componentes.
+- **Componentes Adaptáveis**: Implementar estilos coerentes com o layout escolhido e opção de "collapse" dos componentes.
+- **Estilização**: Utilizar **CSS**, **SASS** e **Bootstrap 4**. Implementar temas (claro/escuro) para melhorar a experiência do usuário.
 
-<b> Objetivo:</b>
-- Desenvolver um portlet simples que exiba a data e hora atual de
-brasilia, dando a opção para o usuário informar o UTC.
+### 2 - Componente Tarefas Pendentes
 
-<br>
+**Objetivo**: Criar uma seção de tarefas pendentes integrada com o backend para exibir e gerenciar tarefas.
 
-##### Desafio: Criação de Serviços Locais Simples
+**Detalhes**:
 
-<b> Objetivo:</b>
-- Criar um serviço local que permite registrar e listar tarefas.
+- **Visual**:
+    - Lista de tarefas com diferentes estados: pendente, em progresso, concluída.
+    - Filtros por status, data de vencimento, prioridade, etc.
+    - Marcar tarefas como concluídas ou editar detalhes.
+    - Design responsivo e intuitivo (Bootstrap/Material UI).
+- **Integração com o Backend**:
+    - Utilizar a API do backend para obter, criar, atualizar e deletar tarefas.
+    - Assegurar que as tarefas exibidas pertençam ao usuário logado.
+    - Manter sincronização entre frontend e backend.
+- **Estilização**: Utilizar **CSS**, **SASS**, **Bootstrap 4** para estilizar os componentes.
 
-<br>
+### 3 - Componente Dados de Cotação
 
-##### Desafio: Desafio: Criar uma REST API no Liferay para Consultar Informações de Clima
+**Objetivo**: Criar um componente estilizado que exiba dados de uma **API de cotação** integrada com o backend.
 
-<b> Objetivo:</b>
-- Desenvolver uma REST API no Liferay que consulta uma API externa de
-previsão do tempo e retorna esses dados ao frontend de forma
-formatada e segura.
+**Detalhes**:
+
+- **Obtenção de Dados**: Realizar requisições a uma API de cotação (ex.: API de câmbio da Open Exchange Rates) para obter dados em tempo real.
+- **Tratamento de Erros**: Implementar tratamento de falhas nas requisições.
+- **Visualização dos Dados**: Exibir dados de forma clara, utilizando gráficos e tabelas.
+- **Estilização**: Utilizar **CSS**, **SASS**, **Bootstrap 4**.
+
+---
+
+## Back-end:
+
+### 1 - Integração com API de Cotação de Dólar
+
+**Passo a Passo**:
+
+1. **Escolher a API de Cotação de Dólar**:
+    - Exemplos: Open Exchange Rates, CurrencyLayer, Alpha Vantage.
+2. **Obter as Credenciais da API**:
+    - Criar uma conta e obter a **API key**.
+3. **Criar um Módulo no Liferay**:
+    - No terminal, vá até o diretório do workspace e crie um novo módulo:
+        
+        ```bash
+        blade create -t mvc-portlet -p com.example.currencyconverter -c CurrencyConverterPortlet currency-converter
+        ```
+        
+4. **Configurar Dependências**:
+    - Adicione ao arquivo `build.gradle`:
+        
+        ```xml
+        dependencies {
+            compileOnly group: "org.apache.httpcomponents", name: "httpclient", version: "4.5.13"
+        }
+        ```
+        
+5. **Fazer a Chamada à API**:
+    - Criar a classe `CurrencyConverterPortlet.java` e desenvolver o código para fazer a requisição GET à API.
+6. **Exibir a Cotação no JSP**:
+    - No arquivo `view.jsp`, exiba a cotação do dólar.
+
+---
+
+### 2 - Desenvolver um CRUD de Tarefas Pendentes com Service Builder
+
+**Passo a Passo**:
+
+1. **Criar o Módulo de Serviço**:
+    
+    ```bash
+    blade create -t service-builder -p com.example.task -c Task task-service
+    ```
+    
+2. **Definir o Modelo no `service.xml`**:
+    - Modifique o arquivo `service.xml`:
+        
+        ```xml
+        <?xml version="1.0" encoding="UTF-8"?>
+        <!DOCTYPE service-builder PUBLIC "-//Liferay//DTD Service Builder 7.4.0//EN" "http://www.liferay.com/dtd/liferay-service-builder_7_4_0.dtd">
+        <service-builder package-path="com.example.task">
+            <namespace>Task</namespace>
+            <entity name="Task" local-service="true" remote-service="false">
+                <column name="taskId" type="long" primary="true" />
+                <column name="title" type="String" />
+                <column name="description" type="String" />
+                <column name="dueDate" type="Date" />
+                <column name="completed" type="boolean" />
+                <order by="dueDate ASC" />
+            </entity>
+        </service-builder>
+        ```
+        
+3. **Gerar o Código com o Service Builder**:
+    
+    ```bash
+    ./gradlew buildService
+    ```
+    
+4. **Implementar o Portlet MVC**:
+    - Criar o portlet:
+        
+        ```bash
+        blade create -t mvc-portlet -p com.example.task -c TaskPortlet task-web
+        ```
+        
+    - Configurar dependências no `build.gradle`:
+        
+        ```xml
+        dependencies {
+            compileOnly project(":modules:task-service")
+        }
+        ```
+        
+    - Implementar a lógica no arquivo `TaskPortlet.java`.
+5. **Criar a Interface JSP**:
+    - No arquivo `view.jsp`, exiba as tarefas e crie um formulário para novas tarefas.
+6. **Empacotar e Implantar**:
+    
+    ```bash
+    ./gradlew build
+    ```
+    
+
+### Resumo:
+
+1. Defina a entidade Task com o **Service Builder**.
+2. Gere o código de serviços.
+3. Implemente um **Portlet MVC** para gerenciar as tarefas.
+4. Crie a interface **JSP** para permitir a criação e listagem de tarefas.
+5. **Empacote** e teste os módulos no Liferay.
+
+
+
 </details>
 
 <br>
 <br>
 
-### Resolução:
+### Resolução da trilha Back-end:
 
-[Desafio 1.1 - Desafio geral](/Conteudo_rockets/Desafio1/1/Desafio1.1.md)
+<br>
 
-[Desafio 1.2 - Mostra Hora UTC](/Conteudo_rockets/Desafio1/2/Desafio1.2.md)
+### Repositório do projeto
 
-[Desafio 1.3 - Serviço de lista](/Conteudo_rockets/Desafio1/3/Desafio1.3.md)
+[Repositório com resolução do desafio](./GX2%20Rockets%20-%20Liferay%20Community%20Edition%20Portal%207.4.3.120%20CE%20GA120/)
