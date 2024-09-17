@@ -4,4 +4,7 @@ dependencies {
 
 	// Dependência do módulo Service Builder
 	compileOnly project(':modules:desafio_tasks:desafio_tasks-service')
+
+	// Dependência da biblioteca JSON
+	implementation group: 'org.json', name: 'json', version: '20230227'
 }
