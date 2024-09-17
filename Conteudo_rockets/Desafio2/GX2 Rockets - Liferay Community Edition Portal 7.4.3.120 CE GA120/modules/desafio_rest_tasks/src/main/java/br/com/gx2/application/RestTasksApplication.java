@@ -1,11 +1,10 @@
 package br.com.gx2.application;
 
 import br.com.gx2.model.Task;
-import br.com.gx2.model.impl.TaskImpl;
 import br.com.gx2.service.TaskLocalService;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.service.ServiceContext;
+import org.json.JSONObject;
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Reference;
 import org.osgi.service.jaxrs.whiteboard.JaxrsWhiteboardConstants;
@@ -14,6 +13,7 @@ import javax.ws.rs.*;
 import javax.ws.rs.core.Application;
 import javax.ws.rs.core.Response;
 import java.util.Collections;
+import java.util.Date;
 import java.util.List;
 import java.util.Set;
 
@@ -34,7 +34,7 @@ public class RestTasksApplication extends Application {
 
 	@Override
 	public Set<Object> getSingletons() {
-		return Collections.<Object>singleton(this);
+		return Collections.singleton(this);
 	}
 
 	// Exemplo de método de teste
@@ -67,24 +67,30 @@ public class RestTasksApplication extends Application {
 	@Produces("application/json")
 	public Response createTask(String body) {
 		try {
-			// Convertendo o corpo JSON para um objeto Task
-			ObjectMapper objectMapper = new ObjectMapper();
-//			Task task = objectMapper.readValue(body, Task.class);
+			// Convertendo o corpo JSON para um JSONObject
+			JSONObject jsonObject = new JSONObject(body);
 
-			Task task = new TaskImpl();
+			// Extraindo dados do JSONObject
+			String title = jsonObject.getString("title");
+			String description = jsonObject.getString("description");
+			String dueDateString = jsonObject.optString("dueDate", null); // Pode ser null se não estiver presente
+			boolean isCompleted = jsonObject.optBoolean("isCompleted", false);
 
-			task.setTitle("test");
-			task = objectMapper.readValue(body, TaskImpl.class);
+			// Convertendo a data se estiver presente
+			Date dueDate = null;
+			if (dueDateString != null && !dueDateString.isEmpty()) {
+				dueDate = new Date(Long.parseLong(dueDateString));
+			}
 
 			// Use uma nova instância de ServiceContext sem precisar de requisição
 			ServiceContext serviceContext = new ServiceContext();
 
 			// Criando a nova tarefa
 			Task newTask = _taskLocalService.createTask(
-					task.getTitle(),
-					task.getDescription(),
-					task.getDueDate(),
-					task.isCompleted(),
+					title,
+					description,
+					dueDate,
+					isCompleted,
 					serviceContext
 			);
 
@@ -102,23 +108,41 @@ public class RestTasksApplication extends Application {
 	@Consumes("application/json")
 	@Produces("application/json")
 	public Response updateTask(
-			@PathParam("taskId") long taskId, Task task) {
+			@PathParam("taskId") long taskId, String body) {
 		try {
+			// Convertendo o corpo JSON para um JSONObject
+			JSONObject jsonObject = new JSONObject(body);
+
+			// Extraindo dados do JSONObject
+			String title = jsonObject.getString("title");
+			String description = jsonObject.getString("description");
+			String dueDateString = jsonObject.optString("dueDate", null);
+			boolean isCompleted = jsonObject.optBoolean("isCompleted", false);
+
+			// Convertendo a data se estiver presente
+			Date dueDate = null;
+			if (dueDateString != null && !dueDateString.isEmpty()) {
+				dueDate = new Date(Long.parseLong(dueDateString));
+			}
+
 			// Use uma nova instância de ServiceContext sem precisar de requisição
 			ServiceContext serviceContext = new ServiceContext();
 
+			// Atualizando a tarefa
 			Task updatedTask = _taskLocalService.updateTask(
 					taskId,
-					task.getTitle(),
-					task.getDescription(),
-					task.getDueDate(),
-					task.isCompleted(),
+					title,
+					description,
+					dueDate,
+					isCompleted,
 					serviceContext
 			);
 
 			return Response.ok(updatedTask).build();
 		} catch (PortalException e) {
 			return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(e.getMessage()).build();
+		} catch (Exception e) {
+			return Response.status(Response.Status.BAD_REQUEST).entity("Erro ao processar o JSON de entrada: " + e.getMessage()).build();
 		}
 	}
 
