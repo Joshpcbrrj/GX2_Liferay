@@ -2,23 +2,20 @@ package br.com.gx2.portlet;
 
 import br.com.gx2.constants.DesafioPortletDolarPortletKeys;
 import com.liferay.portal.kernel.portlet.bridges.mvc.MVCPortlet;
-
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.BufferedReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
-
 import javax.portlet.Portlet;
 import javax.portlet.PortletException;
 import javax.portlet.RenderRequest;
 import javax.portlet.RenderResponse;
-
 import org.json.JSONObject;
 import org.osgi.service.component.annotations.Component;
 
 /**
- * @author vitor.mussi
+ * @author Josué B. Almeida
  */
 @Component(
 		property = {
@@ -40,7 +37,7 @@ public class DesafioPortletDolarPortlet extends MVCPortlet {
 	public void doView(RenderRequest renderRequest, RenderResponse renderResponse)
 			throws IOException, PortletException {
 
-		String urlString = "http://localhost:8080/o/greetings/dollarRate"; // URL do módulo REST
+		String urlString = "http://localhost:8080/o/dollar-api/dollarRate"; // URL do módulo REST corrigida
 		try {
 			URL url = new URL(urlString);
 			HttpURLConnection conn = (HttpURLConnection) url.openConnection();
@@ -59,13 +56,20 @@ public class DesafioPortletDolarPortlet extends MVCPortlet {
 
 			// Parseia a resposta como JSON
 			JSONObject jsonResponse = new JSONObject(content.toString());
-			double dollarRate = jsonResponse.getDouble("USD_BRL");
 
-			// Atribui a taxa de câmbio ao request como Double
-			renderRequest.setAttribute("dollarRate", dollarRate);
+			// Verifique se a chave USD_BRL está disponível na resposta
+			if (jsonResponse.has("USD_BRL")) {
+				double dollarRate = jsonResponse.getDouble("USD_BRL");
+
+				// Atribui a taxa de câmbio ao request como Double
+				renderRequest.setAttribute("dollarRate", dollarRate);
+			} else {
+				renderRequest.setAttribute("dollarRateError", "Erro ao buscar a cotação.");
+			}
 
 		} catch (Exception e) {
 			e.printStackTrace();
+			renderRequest.setAttribute("dollarRateError", "Erro ao buscar a cotação: " + e.getMessage());
 		}
 
 		super.doView(renderRequest, renderResponse);

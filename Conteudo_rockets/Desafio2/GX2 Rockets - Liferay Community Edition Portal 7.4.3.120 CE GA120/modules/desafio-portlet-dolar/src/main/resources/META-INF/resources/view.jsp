@@ -122,10 +122,16 @@
             <%
                 // Pegando o valor da cotação passada pelo portlet como atributo da request
                 Double dollarRate = (Double) request.getAttribute("dollarRate");
+                String dollarRateError = (String) request.getAttribute("dollarRateError");
 
-                if (dollarRate == null) {
+                if (dollarRateError != null) {
             %>
                 <!-- Exibe uma mensagem de erro se não for possível recuperar a cotação -->
+                <p class="error-message"><%= dollarRateError %></p>
+            <%
+                } else if (dollarRate == null) {
+            %>
+                <!-- Exibe uma mensagem de erro padrão se a cotação for nula -->
                 <p class="error-message">Não foi possível recuperar a cotação no momento.</p>
             <%
                 } else {
