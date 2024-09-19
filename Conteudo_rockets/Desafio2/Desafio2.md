@@ -3,7 +3,8 @@
 
 ## Requisitos:
 
-[Documento do desafio](/Conteudo_rockets/Desafio2/arq/PDF/Desafio%20Rockets%20II.pdf)
+[Documento do desafio](/Conteudo_rockets/Desafio2/arq/PDF/Desafio%20Rockets%20II.pdf) <br>
+
 
 <details>
   <summary>Instruções do desafio</summary>
@@ -193,12 +194,36 @@ Criar um **dashboard personalizado** que mostre informações relevantes para os
 
 
 
+</details> <br>
+
+<details>
+  <summary>Resumo do desafio de back-end</summary>
+
+   ### 1. Integração com API de Cotação de Dólar
+   O objetivo deste desafio é criar uma integração no Liferay que consuma uma API externa de cotação de dólar e exiba a informação em uma interface JSP. A abordagem envolve:
+
+   * Escolher uma API de cotação (ex: CurrencyLayer).
+   * Obter as credenciais (chave de API) da API escolhida.
+   * Criar um módulo no Liferay (um portlet MVC) para gerenciar a integração.
+   * Configurar dependências no projeto para permitir chamadas HTTP.
+   * Implementar a chamada à API dentro de um portlet, e exibir a cotação do dólar em uma página JSP.
+
+  <br>
+
+   ### 2. Desenvolver um CRUD de Tarefas Pendentes com Service Builder
+   O objetivo deste desafio é desenvolver um sistema de gerenciamento de tarefas no Liferay usando o Service Builder, que permite a criação e manipulação de entidades persistentes. A abordagem envolve:
+
+   * Criar um módulo de serviço no Liferay para definir a entidade Task (Tarefa).
+   * Definir o modelo da entidade no arquivo service.xml, especificando seus atributos (ex: título, descrição, data de * vencimento).
+   * Gerar automaticamente o código de persistência e serviços usando o Service Builder.
+   * Criar um portlet MVC para gerenciar as tarefas (inclusão, listagem, e edição).
+   * Desenvolver a interface em JSP para permitir a interação com as tarefas e exibir a lista de tarefas pendentes.
+   * Empacotar e implantar os módulos no Liferay para testar o sistema.
+
 </details>
 
 <br>
 <br>
-
-### Resolução da trilha Back-end:
 
 <br>
 
