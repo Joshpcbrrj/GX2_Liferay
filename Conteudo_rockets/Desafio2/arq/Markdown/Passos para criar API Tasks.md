@@ -7,6 +7,14 @@
 
 <details>
   <summary>Prints</summary>
+
+  <img src="/Conteudo_rockets/Desafio2/arq/Img/Criar_service-Builder1.jpg" alt="" width="800">
+
+  <img src="/Conteudo_rockets/Desafio2/arq/Img/Criar_service-Builder2.jpg" alt="" width="800">
+
+  <img src="/Conteudo_rockets/Desafio2/arq/Img/Criar_service-Builder3.jpg" alt="" width="800">
+
+  <img src="/Conteudo_rockets/Desafio2/arq/Img/Criar_service-Builder4.jpg" alt="" width="800">
   
 </details>
 
@@ -46,6 +54,10 @@
 
 <details>
   <summary>Prints</summary>
+
+  <img src="/Conteudo_rockets/Desafio2/arq/Img/Exec_build-service1.jpg" alt="" width="900">
+
+  <img src="/Conteudo_rockets/Desafio2/arq/Img/Exec_build-service2.jpg" alt="" width="800">
   
 </details>
 
@@ -86,6 +98,8 @@ Abrir o arquivo: `bundles/portal-ext.properties`
 
 <details>
   <summary>Prints</summary>
+
+  <img src="/Conteudo_rockets/Desafio2/arq/Img/Mysql1.jpg" alt="" width="900">
   
 </details>
 
@@ -94,11 +108,6 @@ Abrir o arquivo: `bundles/portal-ext.properties`
 ## 6 - Executar o Servidor do Liferay
 **Objetivo:** Rodar o servidor do Liferay para que as tabelas do banco de dados sejam criadas automaticamente.
 
-<details>
-  <summary>Prints</summary>
-  
-</details>
-
 <br>
 
 ## 7 - Confirmar Criação da Tabela desafio_task no MySQL
@@ -106,6 +115,8 @@ Abrir o arquivo: `bundles/portal-ext.properties`
 
 <details>
   <summary>Prints</summary>
+
+  <img src="/Conteudo_rockets/Desafio2/arq/Img/Mysql2.jpg" alt="" width="900">
   
 </details>
 
@@ -229,6 +240,12 @@ public class TaskLocalServiceImpl extends TaskLocalServiceBaseImpl implements Ao
 
 <details>
   <summary>Prints</summary>
+
+  <img src="/Conteudo_rockets/Desafio2/arq/Img/Rest1.jpg" alt="" width="1000">
+
+  <img src="/Conteudo_rockets/Desafio2/arq/Img/Rest2.jpg" alt="" width="1000">
+
+  <img src="/Conteudo_rockets/Desafio2/arq/Img/Rest3.jpg" alt="" width="1000">
   
 </details>
 

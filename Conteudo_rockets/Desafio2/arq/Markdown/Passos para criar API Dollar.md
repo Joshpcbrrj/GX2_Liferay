@@ -17,6 +17,12 @@
 - [Link do site currencylayer](https://currencylayer.com/)
 <details>
   <summary>Prints</summary>
+
+  <img src="/Conteudo_rockets/Desafio2/arq/Img/Criar_conta1.jpg" alt="" width="800">
+
+  <img src="/Conteudo_rockets/Desafio2/arq/Img/Criar_conta2.jpg" alt="" width="800">
+
+  <img src="/Conteudo_rockets/Desafio2/arq/Img/Criar_conta3.jpg" alt="" width="800">
   
 </details>
 
