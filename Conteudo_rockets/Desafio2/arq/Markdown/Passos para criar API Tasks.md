@@ -1,125 +1,193 @@
+# Documentação da API REST Task (Gerenciamento de Tarefas com persistencia das tarefas no banco de dados)
 
-# Desafio 1 Rockets GX2
+## Descrição
 
-## Requisitos:
+Este módulo fornece uma API REST para gerenciar tarefas, permitindo criar, listar, atualizar e excluir tarefas. Os dados das tarefas são retornados no formato JSON, e incluem informações como título, descrição, data de vencimento e status de conclusão.
 
-[Documento do desafio](/Conteudo_rockets/Desafio1/arq/Backend%20Desafios%20Técnicos%20Rocket%20I%20.pdf)
+### Base URL
 
-<details>
-  <summary>Instruções do desafio</summary>
+```bash
+http://localhost:8080/o/task-api
+```
+<br>
+
+### Endpoints
+
+#### 1. **Listar todas as tarefas**
+
+- **Método:** `GET`
+- **Rota:** `http://localhost:8080/o/task-api/tasks`
+- **Descrição:** Retorna uma lista de todas as tarefas cadastradas.
+
+**Exemplo de Requisição:**
+```bash
+GET http://localhost:8080/o/task-api/tasks
+```
+**Exemplo de Resposta (JSON):**
+
+```json
+[
+  {
+    "taskId": 1,
+    "title": "Task 1",
+    "description": "This is task 1",
+    "dueDate": "2024-09-20",
+    "completed": false
+  },
+  {
+    "taskId": 2,
+    "title": "Task 2",
+    "description": "This is task 2",
+    "dueDate": "2024-09-25",
+    "completed": true
+  }
+]
+```
+<br>
+
+#### 2. **Obter uma tarefa por ID**
+
+- **Método:** `GET`
+- **Rota:** `http://localhost:8080/o/task-api/tasks/{taskId}`
+- **Parâmetro de Caminho: taskId:** O ID da tarefa que será retornada.
+- **Descrição:** Retorna uma tarefa específica com base no ID fornecido.
+
+**Exemplo de Requisição:**
+
+```bash
+GET http://localhost:8080/o/task-api/tasks/1
+```
+**Exemplo de Resposta (JSON):**
+
+```json
+{
+  "taskId": 1,
+  "title": "Task 1",
+  "description": "This is task 1",
+  "dueDate": "2024-09-20",
+  "completed": false
+}
+
+```
+<br>
+
+#### 3. **Criar uma nova tarefa**
+
+- **Método:** `POST`
+- **Rota:** `http://localhost:8080/o/task-api/tasks`
+- **Descrição:** Cria uma nova tarefa.
+
+**Exemplo de Requisição:**
+
+```bash
+POST http://localhost:8080/o/task-api/tasks
+```
+**Body (JSON):**
+
+```json
+{
+  "title": "New Task",
+  "description": "Task description",
+  "dueDate": 1727025600000,
+  "isCompleted": false
+}
+```
+
+**Exemplo de Resposta (JSON):**
+
+```json
+{
+  "taskId": 3,
+  "title": "New Task",
+  "description": "Task description",
+  "dueDate": "2024-09-22",
+  "completed": false
+}
+```
+<br>
+
+#### 4. **Atualizar uma tarefa existente**
+
+- **Método:** `PUT`
+- **Rota:** `http://localhost:8080/o/task-api/tasks/{taskId}`
+- **Parâmetro de Caminho: taskId:** O ID da tarefa que será atualizada.
+- **Descrição:** Atualiza os dados de uma tarefa com base no ID fornecido.
+
+**Exemplo de Requisição:**
+
+```bash
+PUT /o/task-api/tasks/1
+```
+
+**Body (JSON):**
+
+```json
+{
+  "title": "Updated Task",
+  "description": "Updated description",
+  "dueDate": 1727025600000,
+  "isCompleted": true
+}
+```
+
+
+**Exemplo de Resposta (JSON):**
+
+```json
+ {
+  "taskId": 1,
+  "title": "Updated Task",
+  "description": "Updated description",
+  "dueDate": "2024-09-22",
+  "completed": true
+}
+```
+<br>
+
+#### 5. **Excluir uma tarefa**
+
+- **Método:** `DELETE`
+- **Rota:** `http://localhost:8080/o/task-api/tasks/{taskId}`
+- **Parâmetro de Caminho: taskId:** O ID da tarefa a ser excluída.
+- **Descrição:** Remove uma tarefa específica com base no ID fornecido.
+
+**Exemplo de Requisição:**
+
+```bash
+DELETE /o/task-api/tasks/1
+```
+
+**Exemplo de Resposta (JSON):**
+
+```json
+{
+  "message": "Task with ID 1 has been successfully deleted."
+}
+```
+
+#### Possíveis Respostas de Erro
+- 404 Not Found: Tarefa não encontrada.
+- 500 Internal Server Error: Ocorreu um erro ao processar a solicitação.
+
+**Exemplo de Resposta de Erro (JSON):**
+
+```json
+{
+  "error": "Task with ID 1 not found"
+}
+```
+
+<br>
+<br>
+
+### Considerações
+- O campo `dueDate` deve ser fornecido como um timestamp em milissegundos desde 01/01/1970.
   
-# Desafios Técnicos Rocket I <br>
-
-### Instruções gerais:
-
-- O desafio será aberto ao final da Live do dia 16/04/2024 e a entrega
-será no dia 17/05/2024, até 23h59. Durante esse período, dúvidas
-pontuais podem ser tiradas via Chat da Google.
-
-- O desafio consiste em 1) realizar os exercícios, registrar no Github e
-enviar o link para avaliação; 2) Apresentar o que foi feito para o
-Comitê de Padrinhos (Data a Marcar).
-
-- A apresentação deve abranger todos os tópicos requeridos.
-
-- Importante: O cumprimento do prazo (17/05/2024) faz parte da
-avaliação (prazo e qualidade da entrega).
-
-
-### Instruções do Desafio:
-
-Envie o link do git contendo os tópicos solicitados e apresente em reunião
-tópicos mencionados abaixo, demonstrando o que foi feito, com duração
-máxima de 15 minutos. Certifique-se de demonstrar e explicar os
-conceitos de forma clara e concisa.
-
-A avaliação será baseada na qualidade dos códigos, na clareza da
-explicação, na precisão das informações e na demonstração prática dos
-conceitos. Certifique-se de ter internet, câmera e luz adequadas na hora
-da apresentação.
-
-Esta avaliação testará seu conhecimento prático do Liferay, qualidade de
-código e sua capacidade de comunicar eficazmente os conceitos aos
-outros. 
-
-<br>
-
-#### Desafio Geral:
-Desafio: Implementar um de Processo de Aprovação de Reembolso no
-Liferay
-
-Objetivo: Desenvolver um processo de aprovação de reembolso dentro da
-plataforma Liferay que permite a um funcionário submeter uma
-solicitação de reembolso, incluindo um comprovante e informações
-específicas. O processo deve incluir etapas de validação e aprovação por
-parte de um gerente e um diretor, antes do envio para a área financeira
-para o processamento final e pagamento do reembolso.
-
-Requisitos Detalhados do Processo
-Submissão da Solicitação pelo Funcionário:
-
-##### Campos Obrigatórios:
-- Valor: Campo obrigatório.
-- Data: Campo obrigatório.
-- Fornecedor: Campo obrigatório se o valor for igual ou superior a R$
-100,00.
-- Descrição: Campo obrigatório se o valor for igual ou superior a R$
-100,00.
-- Comprovante: Anexar comprovante de despesa. Campo obrigatório.
-Revisão pelo Gerente.
-
-<br>
-O gerente pode aprovar e encaminhar a solicitação para o diretor ou
-rejeitar a solicitação.
-Em caso de rejeição, deve ser possível fornecer um feedback sobre os
-motivos da rejeição ao funcionário.
-
-O diretor pode aprovar a solicitação para envio ao departamento
-financeiro ou rejeitá-la.
-Em caso de rejeição, deve ser possível fornecer um feedback sobre os
-motivos da rejeição ao funcionário.
-
-Após a aprovação pelo diretor, a solicitação é enviada para a área
-financeira.
-O departamento financeiro processa o pagamento e envia um email ao
-funcionário informando que o reembolso foi pago.
-O email deve especificar o valor pago.
+- Todas as requisições e respostas devem incluir o cabeçalho `Content-Type: application/json`.
 
 <br>
 <br>
 
-#### Desafios Backend (escolher 2 de 3):
+[Voltar para a página do projeto](/Conteudo_rockets/Desafio2/GX2%20Rockets%20-%20Liferay%20Community%20Edition%20Portal%207.4.3.120%20CE%20GA120/README.md) <br>
 
-##### Desafio: Criar um Portlet Básico
-
-<b> Objetivo:</b>
-- Desenvolver um portlet simples que exiba a data e hora atual de
-brasilia, dando a opção para o usuário informar o UTC.
-
-<br>
-
-##### Desafio: Criação de Serviços Locais Simples
-
-<b> Objetivo:</b>
-- Criar um serviço local que permite registrar e listar tarefas.
-
-<br>
-
-##### Desafio: Desafio: Criar uma REST API no Liferay para Consultar Informações de Clima
-
-<b> Objetivo:</b>
-- Desenvolver uma REST API no Liferay que consulta uma API externa de
-previsão do tempo e retorna esses dados ao frontend de forma
-formatada e segura.
-</details>
-
-<br>
-<br>
-
-### Resolução:
-
-[Desafio 1.1 - Desafio geral](/Conteudo_rockets/Desafio1/1/Desafio1.1.md)
-
-[Desafio 1.2 - Mostra Hora UTC](/Conteudo_rockets/Desafio1/2/Desafio1.2.md)
-
-[Desafio 1.3 - Serviço de lista](/Conteudo_rockets/Desafio1/3/Desafio1.3.md)
+[Voltar inicio](/README.md)

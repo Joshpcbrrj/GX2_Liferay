@@ -12,7 +12,8 @@
 
 ---
 
-## Setups
+## Setups:
+
 [Como buildar o portal liferay em qualquer versão](/Conteudo_rockets/Desafio2/arq/Markdown/Como%20buildar%20o%20portal%20Liferay%20em%20qualquer%20versao.md) <br>
 
 [Passos para criar API Dollar](/Conteudo/1%20-%20Trilha%20Inicial/1%20Inicio.md) <br>
@@ -24,7 +25,7 @@
 ## Documentação:
 
 
-[Documentação API Dollar](/Conteudo/1%20-%20Trilha%20Inicial/1%20Inicio.md) <br>
+[Documentação API Dollar](/Conteudo_rockets/Desafio2/arq/Markdown/Documentação%20API%20Dollar.md) <br>
 
-[Documentação API Tasks](/Conteudo/1%20-%20Trilha%20Inicial/1%20Inicio.md) <br>
+[Documentação API Tasks](/Conteudo_rockets/Desafio2/arq/Markdown/Documentação%20API%20Tasks.md) <br>
 

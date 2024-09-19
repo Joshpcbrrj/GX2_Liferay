@@ -24,7 +24,7 @@ http://localhost:8080/api/o/dollar-api
 
 **Exemplo de Requisição:**
 ```bash
-GET /o/dollar-api/dollarRate
+GET http://localhost:8080/api/o/dollar-api/dollarRate
 ```
 **Exemplo de Resposta (JSON):**
 
@@ -79,4 +79,4 @@ A resposta JSON inclui a cotação da moeda solicitada em relação ao dólar.
 
 [Voltar para a página do projeto](/Conteudo_rockets/Desafio2/GX2%20Rockets%20-%20Liferay%20Community%20Edition%20Portal%207.4.3.120%20CE%20GA120/README.md) <br>
 
-[Voltar inicio](/README.md) <br>
+[Voltar inicio](/README.md)
