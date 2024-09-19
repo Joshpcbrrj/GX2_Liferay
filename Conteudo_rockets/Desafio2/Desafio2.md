@@ -194,7 +194,7 @@ Criar um **dashboard personalizado** que mostre informações relevantes para os
 
 
 
-</details> <br>
+</details>
 
 <details>
   <summary>Resumo do desafio de back-end</summary>
