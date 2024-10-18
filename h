@@ -91,4 +91,169 @@
        -u, --include-untracked, --no-include-untracked
            When used with the [1mpush [22mand [1msave [22mcommands, all untracked files are also stashed and then cleaned up with [1mgit clean[22m.
 
-           When used
+           When used with the [1mshow [22mcommand, show the untracked files in the stash entry as part of the diff.
+
+       --only-untracked
+           This option is only valid for the [1mshow [22mcommand.
+
+           Show only the untracked files in the stash entry as part of the diff.
+
+       --index
+           This option is only valid for [1mpop [22mand [1mapply [22mcommands.
+
+           Tries to reinstate not only the working tree’s changes, but also the index’s ones. However, this can fail, when you have conflicts (which are stored in the index, where you therefore can no longer apply the changes as they were
+           originally).
+
+       -k, --keep-index, --no-keep-index
+           This option is only valid for [1mpush [22mand [1msave [22mcommands.
+
+           All changes already added to the index are left intact.
+
+       -p, --patch
+           This option is only valid for [1mpush [22mand [1msave [22mcommands.
+
+           Interactively select hunks from the diff between HEAD and the working tree to be stashed. The stash entry is constructed such that its index state is the same as the index state of your repository, and its worktree contains only the
+           changes you selected interactively. The selected changes are then rolled back from your worktree. See the “Interactive Mode” section of [1mgit-add[22m(1) to learn how to operate the [1m--patch [22mmode.
+
+           The [1m--patch [22moption implies [1m--keep-index[22m. You can use [1m--no-keep-index [22mto override this.
+
+       -S, --staged
+           This option is only valid for [1mpush [22mand [1msave [22mcommands.
+
+           Stash only the changes that are currently staged. This is similar to basic [1mgit commit [22mexcept the state is committed to the stash instead of current branch.
+
+           The [1m--patch [22moption has priority over this one.
+
+       --pathspec-from-file=<file>
+           This option is only valid for [1mpush [22mcommand.
+
+           Pathspec is passed in [1m<file> [22minstead of commandline args. If [1m<file> [22mis exactly [1m- [22mthen standard input is used. Pathspec elements are separated by LF or CR/LF. Pathspec elements can be quoted as explained for the configuration variable
+           [1mcore.quotePath [22m(see [1mgit-config[22m(1)). See also [1m--pathspec-file-nul [22mand global [1m--literal-pathspecs[22m.
+
+       --pathspec-file-nul
+           This option is only valid for [1mpush [22mcommand.
+
+           Only meaningful with [1m--pathspec-from-file[22m. Pathspec elements are separated with NUL character and all other characters are taken literally (including newlines and quotes).
+
+       -q, --quiet
+           This option is only valid for [1mapply[22m, [1mdrop[22m, [1mpop[22m, [1mpush[22m, [1msave[22m, [1mstore [22mcommands.
+
+           Quiet, suppress feedback messages.
+
+       --
+           This option is only valid for [1mpush [22mcommand.
+
+           Separates pathspec from options for disambiguation purposes.
+
+       <pathspec>...
+           This option is only valid for [1mpush [22mcommand.
+
+           The new stash entry records the modified states only for the files that match the pathspec. The index entries and working tree files are then rolled back to the state in HEAD only for these files, too, leaving files that do not match the
+           pathspec intact.
+
+           For more details, see the [4mpathspec[24m entry in [1mgitglossary[22m(7).
+
+       <stash>
+           This option is only valid for [1mapply[22m, [1mbranch[22m, [1mdrop[22m, [1mpop[22m, [1mshow [22mcommands.
+
+           A reference of the form [1mstash@{<revision>}[22m. When no [1m<stash> [22mis given, the latest stash is assumed (that is, [1mstash@{0}[22m).
+
+[1mDISCUSSION[0m
+       A stash entry is represented as a commit whose tree records the state of the working directory, and its first parent is the commit at [1mHEAD [22mwhen the entry was created. The tree of the second parent records the state of the index when the entry
+       is made, and it is made a child of the [1mHEAD [22mcommit. The ancestry graph looks like this:
+
+                  .----W
+                 /    /
+           -----H----I
+
+       where [1mH [22mis the [1mHEAD [22mcommit, [1mI [22mis a commit that records the state of the index, and [1mW [22mis a commit that records the state of the working tree.
+
+[1mEXAMPLES[0m
+       Pulling into a dirty tree
+           When you are in the middle of something, you learn that there are upstream changes that are possibly relevant to what you are doing. When your local changes do not conflict with the changes in the upstream, a simple [1mgit pull [22mwill let you
+           move forward.
+
+           However, there are cases in which your local changes do conflict with the upstream changes, and [1mgit pull [22mrefuses to overwrite your changes. In such a case, you can stash your changes away, perform a pull, and then unstash, like this:
+
+               $ git pull
+                ...
+               file foobar not up to date, cannot merge.
+               $ git stash
+               $ git pull
+               $ git stash pop
+
+       Interrupted workflow
+           When you are in the middle of something, your boss comes in and demands that you fix something immediately. Traditionally, you would make a commit to a temporary branch to store your changes away, and return to your original branch to make
+           the emergency fix, like this:
+
+               # ... hack hack hack ...
+               $ git switch -c my_wip
+               $ git commit -a -m "WIP"
+               $ git switch master
+               $ edit emergency fix
+               $ git commit -a -m "Fix in a hurry"
+               $ git switch my_wip
+               $ git reset --soft HEAD^
+               # ... continue hacking ...
+
+           You can use [4mgit[24m [4mstash[24m to simplify the above, like this:
+
+               # ... hack hack hack ...
+               $ git stash
+               $ edit emergency fix
+               $ git commit -a -m "Fix in a hurry"
+               $ git stash pop
+               # ... continue hacking ...
+
+       Testing partial commits
+           You can use [1mgit stash push --keep-index [22mwhen you want to make two or more commits out of the changes in the work tree, and you want to test each change before committing:
+
+               # ... hack hack hack ...
+               $ git add --patch foo            # add just first part to the index
+               $ git stash push --keep-index    # save all other changes to the stash
+               $ edit/build/test first part
+               $ git commit -m 'First part'     # commit fully tested change
+               $ git stash pop                  # prepare to work on all other changes
+               # ... repeat above five steps until one commit remains ...
+               $ edit/build/test remaining parts
+               $ git commit foo -m 'Remaining parts'
+
+       Saving unrelated changes for future use
+           When you are in the middle of massive changes and you find some unrelated issue that you don’t want to forget to fix, you can do the change(s), stage them, and use [1mgit stash push --staged [22mto stash them out for future use. This is similar
+           to committing the staged changes, only the commit ends-up being in the stash and not on the current branch.
+
+               # ... hack hack hack ...
+               $ git add --patch foo           # add unrelated changes to the index
+               $ git stash push --staged       # save these changes to the stash
+               # ... hack hack hack, finish current changes ...
+               $ git commit -m 'Massive'       # commit fully tested changes
+               $ git switch fixup-branch       # switch to another branch
+               $ git stash pop                 # to finish work on the saved changes
+
+       Recovering stash entries that were cleared/dropped erroneously
+           If you mistakenly drop or clear stash entries, they cannot be recovered through the normal safety mechanisms. However, you can try the following incantation to get a list of stash entries that are still in your repository, but not
+           reachable any more:
+
+               git fsck --unreachable |
+               grep commit | cut -d\  -f3 |
+               xargs git log --merges --no-walk --grep=WIP
+
+[1mCONFIGURATION[0m
+       Everything below this line in this section is selectively included from the [1mgit-config[22m(1) documentation. The content is the same as what’s found there:
+
+       stash.showIncludeUntracked
+           If this is set to true, the [1mgit stash show [22mcommand will show the untracked files of a stash entry. Defaults to false. See the description of the [4mshow[24m command in [1mgit-stash[22m(1).
+
+       stash.showPatch
+           If this is set to true, the [1mgit stash show [22mcommand without an option will show the stash entry in patch form. Defaults to false. See the description of the [4mshow[24m command in [1mgit-stash[22m(1).
+
+       stash.showStat
+           If this is set to true, the [1mgit stash show [22mcommand without an option will show a diffstat of the stash entry. Defaults to true. See the description of the [4mshow[24m command in [1mgit-stash[22m(1).
+
+[1mSEE ALSO[0m
+       [1mgit-checkout[22m(1), [1mgit-commit[22m(1), [1mgit-reflog[22m(1), [1mgit-reset[22m(1), [1mgit-switch[22m(1)
+
+[1mGIT[0m
+       Part of the [1mgit[22m(1) suite
+
+Git 2.43.0                                                                                                              05/20/2024                                                                                                            [4mGIT-STASH[24m(1)
