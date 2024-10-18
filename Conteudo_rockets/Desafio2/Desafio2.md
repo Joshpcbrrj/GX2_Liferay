@@ -1,7 +1,14 @@
 
 # Desafio 2 Rockets GX2
 
-## Requisitos:
+<br>
+
+>### Liferay Community Edition Portal 7.4.3.120 CE GA120
+
+<img src="/Conteudo_rockets/Desafio2/arq/Img/1.jpg" alt="" width="600">
+
+
+## Instruções do desafio:
 
 [Documento do desafio](/Conteudo_rockets/Desafio2/arq/PDF/Desafio%20Rockets%20II.pdf) <br>
 
@@ -225,8 +232,30 @@ Criar um **dashboard personalizado** que mostre informações relevantes para os
 <br>
 <br>
 
+## Setups:
+
+[Como buildar o portal liferay em qualquer versão](/Conteudo_rockets/Desafio2/arq/Markdown/Como%20buildar%20o%20portal%20Liferay%20em%20qualquer%20versao.md) <br>
+
+[Passos para criar API Dollar](/Conteudo_rockets/Desafio2/arq/Markdown/Passos%20para%20criar%20API%20Dollar.md) <br>
+
+[Passos para criar API Tasks](/Conteudo_rockets/Desafio2/arq/Markdown/Passos%20para%20criar%20API%20Tasks.md) <br>
+
+<br>
 <br>
 
-### Repositório do projeto
+### Modulos de solução do desafio
 
-[Repositório com resolução do desafio](./GX2%20Rockets%20-%20Liferay%20Community%20Edition%20Portal%207.4.3.120%20CE%20GA120/)
+[Módulos do desafio](./modules/)
+
+>Importar na pasta "module" do seu portal Liferay
+
+<br>
+<br>
+
+### Documentação das APIs:
+
+
+[Documentação API Dollar](/Conteudo_rockets/Desafio2/arq/Markdown/Documentação%20API%20Dollar.md) <br>
+
+[Documentação API Tasks](/Conteudo_rockets/Desafio2/arq/Markdown/Documentação%20API%20Tasks.md) <br>
+
