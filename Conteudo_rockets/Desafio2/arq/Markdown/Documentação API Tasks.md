@@ -187,7 +187,8 @@ DELETE /o/task-api/tasks/1
 
 <br>
 <br>
+<br>
 
-[Voltar para a página do projeto](/Conteudo_rockets/Desafio2/GX2%20Rockets%20-%20Liferay%20Community%20Edition%20Portal%207.4.3.120%20CE%20GA120/README.md) <br>
+[Voltar para a página do projeto](/Conteudo_rockets/Desafio2/Desafio2.md) <br>
 
 [Voltar inicio](/README.md)
