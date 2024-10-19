@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+
+<model-hints>
+	<model name="br.com.gx2.model.Auditoria">
+		<field name="uuid" type="String" />
+		<field name="auditoriaId" type="long" />
+		<field name="dataAcao" type="Date" />
+		<field name="usuario" type="String" />
+		<field name="acao" type="String" />
+	</model>
+	<model name="br.com.gx2.model.ClientePj">
+		<field name="uuid" type="String" />
+		<field name="clientePJId" type="long" />
+		<field name="razaoSocial" type="String" />
+		<field name="cnpj" type="String" />
+	</model>
+	<model name="br.com.gx2.model.SolicitacaoServico">
+		<field name="uuid" type="String" />
+		<field name="solicitacaoId" type="long" />
+		<field name="codigoUnimed" type="String" />
+		<field name="descricao" type="String" />
+		<field name="dataSolicitacao" type="Date" />
+		<field name="status" type="int" />
+		<field name="prioridade" type="int" />
+		<field name="clientePJId" type="long" />
+	</model>
+</model-hints>

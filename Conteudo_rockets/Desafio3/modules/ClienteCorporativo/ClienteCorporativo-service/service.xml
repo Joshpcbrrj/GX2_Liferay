@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<!DOCTYPE service-builder PUBLIC "-//Liferay//DTD Service Builder 7.4.0//EN" "http://www.liferay.com/dtd/liferay-service-builder_7_4_0.dtd">
+
+<service-builder dependency-injector="ds" package-path="br.com.gx2">
+	<namespace>Ccorp</namespace>
+
+	<!-- Entidade ClienteCorporativo -->
+	<entity name="ClientePj" local-service="true" remote-service="true" uuid="true">
+		<column name="clientePJId" primary="true" type="long" />
+		<column name="razaoSocial" type="String" />
+		<column name="cnpj" type="String" />
+
+		<!-- Adicionar finder para o campo CNPJ -->
+		<finder name="Cnpj" return-type="ClientePj">
+			<finder-column name="cnpj" />
+		</finder>
+	</entity>
+
+	<!-- Entidade SolicitacaoServico -->
+	<entity name="SolicitacaoServico" local-service="true" remote-service="true" uuid="true">
+		<column name="solicitacaoId" primary="true" type="long" />
+		<column name="codigoUnimed" type="String" />
+		<column name="descricao" type="String" />
+		<column name="dataSolicitacao" type="Date" />
+		<column name="status" type="int" /> <!-- de 1 a 3 (sendo 1 aberto/ 2 aguardando/ 3 fechado) -->
+		<column name="prioridade" type="int" /> <!-- de 1 a 3 (sendo 1 baixa/ 2 média/ 3 alta) -->
+
+		<column name="clientePJId" type="long" />
+
+		<!-- Finder para buscar solicitações por cliente PJ -->
+		<finder name="ClientePJId" return-type="Collection">
+			<finder-column name="clientePJId" />
+		</finder>
+	</entity>
+
+	<!-- Entidade Auditoria -->
+	<entity name="Auditoria" local-service="true" remote-service="true" uuid="true">
+		<column name="auditoriaId" primary="true" type="long" />
+		<column name="dataAcao" type="Date" />
+		<column name="usuario" type="String" />
+		<column name="acao" type="String" />
+	</entity>
+</service-builder>
