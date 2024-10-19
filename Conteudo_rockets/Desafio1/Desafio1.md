@@ -1,5 +1,11 @@
-
 # Desafio 1 Rockets GX2
+
+>### Liferay DXP Edition Portal 2024 Q 3.4
+
+<img src="/Conteudo_rockets/Desafio1/arq/Img/0.png" alt="" width="500">
+
+<br>
+<br>
 
 ## Requisitos:
 
@@ -118,11 +124,11 @@ formatada e segura.
 
 ### Resolução:
 
-[Desafio 1.1 - Desafio geral](/Conteudo_rockets/Desafio1/1/Desafio1.1.md)
+[Desafio 1.1 - Desafio geral](/Conteudo_rockets/Desafio1/arq/Markdown/Desafio1.1.md)
 
-[Desafio 1.2 - Mostra Hora UTC](/Conteudo_rockets/Desafio1/2/Desafio1.2.md)
+[Desafio 1.2 - Mostra Hora UTC](/Conteudo_rockets/Desafio1/arq/Markdown/Desafio1.2.md)
 
-[Desafio 1.3 - Serviço de lista](/Conteudo_rockets/Desafio1/3/Desafio1.3.md)
+[Desafio 1.3 - Serviço de lista](/Conteudo_rockets/Desafio1/arq/Markdown/Desafio1.3.md)
 
 <br>
 <br>

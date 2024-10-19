@@ -5,8 +5,10 @@
 
 >### Liferay Community Edition Portal 7.4.3.120 CE GA120
 
-<img src="/Conteudo_rockets/Desafio2/arq/Img/1.jpg" alt="" width="600">
+<img src="/Conteudo_rockets/Desafio2/arq/Img/1.jpg" alt="" width="500">
 
+<br>
+<br>
 
 ## Instruções do desafio:
 

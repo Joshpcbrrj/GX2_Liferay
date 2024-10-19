@@ -1,0 +1,51 @@
+
+# Desafio 3 Rockets GX2
+
+<br>
+
+>### Liferay Community Edition Portal 7.3 U.35
+
+<img src="/Conteudo_rockets/Desafio3/arq/Img/1.png" alt="" width="500">
+
+<br>
+<br>
+
+## Instruções do desafio:
+
+[Documento do desafio](/Conteudo_rockets/Desafio3/arq/PDF/Desafio%20Técnico%20de%20Backend%20III%20.pdf) <br>
+
+
+<details>
+  <summary>Instruções do desafio</summary>
+
+
+</details>
+
+<br>
+
+## Setups:
+
+[Como buildar o portal liferay em qualquer versão](/Conteudo_rockets/Desafio2/arq/Markdown/Como%20buildar%20o%20portal%20Liferay%20em%20qualquer%20versao.md) <br>
+
+<br>
+
+### Modulos de solução do desafio
+
+[Módulos do desafio](/Conteudo_rockets/Desafio3/modules/)
+
+>Importar na pasta "module" do seu portal Liferay
+
+<br>
+
+### Documentação das APIs:
+
+
+[Documentação API Dollar](/Conteudo_rockets/Desafio2/arq/Markdown/Documentação%20API%20Dollar.md) <br>
+
+[Documentação API Tasks](/Conteudo_rockets/Desafio2/arq/Markdown/Documentação%20API%20Tasks.md) <br>
+
+<br>
+<br>
+<br>
+
+[Voltar inicio](/README.md)
