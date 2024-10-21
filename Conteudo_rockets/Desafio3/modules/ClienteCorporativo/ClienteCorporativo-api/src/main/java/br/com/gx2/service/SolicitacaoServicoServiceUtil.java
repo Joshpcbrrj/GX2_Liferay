@@ -48,6 +48,18 @@ public class SolicitacaoServicoServiceUtil {
 	}
 
 	/**
+	 * Remove uma solicitação de serviço existente pelo ID.
+	 *
+	 * @param solicitacaoId o ID da solicitação de serviço a ser removida
+	 * @return a resposta HTTP com o DTO da solicitação de serviço removida, ou erro caso não seja encontrada
+	 */
+	public static javax.ws.rs.core.Response deleteSolicitacaoServico(
+		long solicitacaoId) {
+
+		return getService().deleteSolicitacaoServico(solicitacaoId);
+	}
+
+	/**
 	 * Recupera todas as solicitações de serviço.
 	 *
 	 * @return Resposta com a lista de solicitações.

@@ -1,6 +1,8 @@
 
 # Documentação da API REST Dollar (Consulta de Taxa de Câmbio do Dólar)
 
+---
+
 ## Descrição
 Este módulo fornece uma API REST para consultar a taxa de câmbio do dólar americano (USD) em relação a outras moedas, utilizando o serviço da API currencylayer. A API permite obter a taxa de câmbio para uma moeda específica (Neste caso o real) e retorna os dados no formato JSON.
 
@@ -11,7 +13,6 @@ Este módulo fornece uma API REST para consultar a taxa de câmbio do dólar ame
 ```bash
 http://localhost:8080/api/o/dollar-api
 ```
-
 <br>
 
 ### Endpoints

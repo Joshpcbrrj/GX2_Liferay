@@ -161,4 +161,25 @@ public class SolicitacaoServicoServiceImpl extends SolicitacaoServicoServiceBase
 		_log.info("Total de solicitações de serviço recuperadas: " + solicitacoesDto.size());
 		return Response.status(Response.Status.OK).entity(solicitacoesDto).build();
 	}
+
+	/**
+	 * Remove uma solicitação de serviço existente pelo ID.
+	 *
+	 * @param solicitacaoId o ID da solicitação de serviço a ser removida
+	 * @return a resposta HTTP com o DTO da solicitação de serviço removida, ou erro caso não seja encontrada
+	 */
+	public Response deleteSolicitacaoServico(long solicitacaoId) {
+		_log.info("Removendo solicitação de serviço com ID: " + solicitacaoId);
+
+		try {
+			SolicitacaoServico solicitacaoServico = solicitacaoServicoLocalService.deleteSolicitacaoServico(solicitacaoId);
+			SolicitacaoServicoDto dto = toDto(solicitacaoServico);
+			_log.info("Solicitação de serviço removida com sucesso: " + solicitacaoId);
+
+			return Response.status(Response.Status.OK).entity(dto).build();
+		} catch (PortalException e) {
+			_log.error("Erro ao remover a solicitação de serviço: " + e.getMessage());
+			return Response.status(Response.Status.NOT_FOUND).entity("Solicitação de serviço não encontrada.").build();
+		}
+	}
 }

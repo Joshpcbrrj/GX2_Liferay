@@ -40,12 +40,14 @@
 ### Documentação das APIs:
 
 
-[Documentação API Dollar](/Conteudo_rockets/Desafio2/arq/Markdown/Documentação%20API%20Dollar.md) <br>
+[Documentação API ClientePJ](/Conteudo_rockets/Desafio3/arq/Markdown/Documentação%20API%20ClientePJ.md) <br>
 
-[Documentação API Tasks](/Conteudo_rockets/Desafio2/arq/Markdown/Documentação%20API%20Tasks.md) <br>
+[Documentação API Solicitação de serviço](/Conteudo_rockets/Desafio3/arq/Markdown/Documentação%20API%20SolicitacaoServico.md) <br>
+
+[Documentação API Auditoria de acessos](/Conteudo_rockets/Desafio3/arq/Markdown/Documentação%20API%20Auditoria.md)<br>
 
 <br>
 <br>
 <br>
 
-[Voltar inicio](/README.md)
+[Voltar ao inicio](/README.md)

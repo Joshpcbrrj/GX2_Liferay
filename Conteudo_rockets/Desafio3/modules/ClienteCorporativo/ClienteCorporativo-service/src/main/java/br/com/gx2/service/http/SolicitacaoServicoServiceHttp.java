@@ -189,6 +189,38 @@ public class SolicitacaoServicoServiceHttp {
 		}
 	}
 
+	public static javax.ws.rs.core.Response deleteSolicitacaoServico(
+		HttpPrincipal httpPrincipal, long solicitacaoId) {
+
+		try {
+			MethodKey methodKey = new MethodKey(
+				SolicitacaoServicoServiceUtil.class, "deleteSolicitacaoServico",
+				_deleteSolicitacaoServicoParameterTypes5);
+
+			MethodHandler methodHandler = new MethodHandler(
+				methodKey, solicitacaoId);
+
+			Object returnObj = null;
+
+			try {
+				returnObj = TunnelUtil.invoke(httpPrincipal, methodHandler);
+			}
+			catch (Exception exception) {
+				throw new com.liferay.portal.kernel.exception.SystemException(
+					exception);
+			}
+
+			return (javax.ws.rs.core.Response)returnObj;
+		}
+		catch (com.liferay.portal.kernel.exception.SystemException
+					systemException) {
+
+			_log.error(systemException, systemException);
+
+			throw systemException;
+		}
+	}
+
 	private static Log _log = LogFactoryUtil.getLog(
 		SolicitacaoServicoServiceHttp.class);
 
@@ -204,5 +236,7 @@ public class SolicitacaoServicoServiceHttp {
 		new Class[] {long.class};
 	private static final Class<?>[] _getAllSolicitacoesParameterTypes4 =
 		new Class[] {};
+	private static final Class<?>[] _deleteSolicitacaoServicoParameterTypes5 =
+		new Class[] {long.class};
 
 }

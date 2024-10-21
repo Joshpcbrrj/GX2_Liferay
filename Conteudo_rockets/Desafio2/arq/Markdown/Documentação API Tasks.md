@@ -1,5 +1,7 @@
 # Documentação da API REST Task (Gerenciamento de Tarefas com persistencia das tarefas no banco de dados)
 
+---
+
 ## Descrição
 
 Este módulo fornece uma API REST para gerenciar tarefas, permitindo criar, listar, atualizar e excluir tarefas. Os dados das tarefas são retornados no formato JSON, e incluem informações como título, descrição, data de vencimento e status de conclusão.
