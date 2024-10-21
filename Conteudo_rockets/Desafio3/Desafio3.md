@@ -18,6 +18,30 @@
 <details>
   <summary>Instruções do desafio</summary>
 
+  # **Desafio Técnico 1: Implementação de Backend para Gerenciamento de Solicitações de Serviço**
+
+  ### **Contexto:**
+
+  A **Unimed** deseja implementar um sistema para gerenciar as solicitações de serviços feitas por seus clientes corporativos (pessoas jurídicas). Cada cliente pode fazer múltiplas solicitações e acompanhar o status delas. O objetivo é criar um backend que atenda às seguintes necessidades:
+
+  ### **Requisitos Funcionais:**
+
+  1. **Cadastro de Clientes Corporativos**:
+      - O sistema deve permitir o cadastro de clientes com informações como: Razão Social, CNPJ.
+  2. **Registro de Solicitações**:
+      - Um cliente deve poder registrar solicitações de serviços. Cada solicitação deve conter os seguintes dados:
+          - Código Unimed (identificador da unidade que está atendendo)
+          - Descrição do serviço solicitado
+          - Data da solicitação
+          - Status da solicitação (pendente, em andamento, concluída)
+          - Prioridade (baixa, média, alta)
+  3. **Consulta de Solicitações**:
+      - Os clientes devem poder consultar as suas solicitações de serviço, com filtros por status e data de criação.
+      - A consulta deve retornar uma lista paginada de solicitações, mostrando os dados essenciais (código, descrição, data, status).
+  4. **Atualização de Status**:
+      - O sistema deve permitir que o status de uma solicitação seja atualizado (p.ex. de "pendente" para "concluída").
+  5. **Auditoria**:
+      - Todas as operações (criação, atualização) devem ser auditadas, armazenando a data e quem realizou a ação (cliente ou sistema interno).
 
 </details>
 
