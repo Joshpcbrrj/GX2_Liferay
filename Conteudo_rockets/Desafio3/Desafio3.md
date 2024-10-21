@@ -18,7 +18,7 @@
 <details>
   <summary>Instruções do desafio</summary>
 
-  # **Desafio Técnico 1: Implementação de Backend para Gerenciamento de Solicitações de Serviço**
+  # **Desafio Técnico: Implementação de Backend para Gerenciamento de Solicitações de Serviço**
 
   ### **Contexto:**
 
